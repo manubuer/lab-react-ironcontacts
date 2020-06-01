@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 
 class Contact extends Component {
+  deleteHandler = () => {
+    this.props.deleteHandler(this.props.id);
+  };
 
   render() {
     return (
@@ -13,7 +16,14 @@ class Contact extends Component {
         </td>
         <td>{this.props.name}</td>
         <td>{this.props.popularity}</td>
-        <td><button onClick={this.deleteHandler} id={this.props.id}>DELETE</button></td>
+        <td>
+          <button
+            className="button is-danger is-small"
+            onClick={this.deleteHandler}
+          >
+            DELETE
+          </button>
+        </td>
       </tr>
     );
   }
